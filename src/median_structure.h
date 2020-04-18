@@ -6,20 +6,15 @@
 class MedianStructure {
 private:
     std::priority_queue<double> lower_numbers;
-    std::priority_queue<double> higher_numbers;
+    std::priority_queue<double, std::vector<double>, std::greater<double>> higher_numbers;
 
 public:
     MedianStructure();
     MedianStructure(std::priority_queue<double> lower,
-            std::priority_queue<double> higher);
-    MedianStructure(const MedianStructure& other);
-    MedianStructure& operator=(const MedianStructure& other);
-    MedianStructure(const MedianStructure&& other);
-    MedianStructure& operator=(const MedianStructure&& other);
-    ~MedianStructure();
+            std::priority_queue<double, std::vector<double>, std::greater<double>> higher);
 
     void addNumber(double num);
-    double getMedian();
+    auto getMedian() -> double;
 
 private:
     void synchronizeQueues();

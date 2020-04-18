@@ -1,30 +1,11 @@
 #include "median_structure.h"
 
-MedianStructure::MedianStructure() : current_median(0) {}
+MedianStructure::MedianStructure() {}
 
-MedianStructure::MedianStructure(std::priority_queue<double> lower, std::priority_queue<double> higher) :
-        lower_numbers(lower), higher_numbers(higher), current_median(0) {
-    SynchronizeQueues():
-}
-
-MedianStructure::MedianStructure(const MedianStructure& other) {
-
-}
-
-MedianStructure& MedianStructure::operator=(const MedianStructure& other) {
-
-}
-
-MedianStructure::MedianStructure(const MedianStructure&& other) {
-
-}
-
-MedianStructure& MedianStructure::operator=(const MedianStructure&& other) {
-
-}
-
-MedianStructure::~MedianStructure() {
-
+MedianStructure::MedianStructure(std::priority_queue<double> lower,
+        std::priority_queue<double, std::vector<double>, std::greater<double>> higher) :
+        lower_numbers(lower), higher_numbers(higher) {
+    this->synchronizeQueues();
 }
 
 void MedianStructure::addNumber(double num) {
@@ -52,6 +33,8 @@ void MedianStructure::addNumber(double num) {
 }
 
 double MedianStructure::getMedian() {
+    if (lower_numbers.empty() && higher_numbers.empty()) return 0;
+
     // median is the top of the bigger container, otherwise the mean of both
     if (lower_numbers.size() > higher_numbers.size()) {
         return lower_numbers.top();
