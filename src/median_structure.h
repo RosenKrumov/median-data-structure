@@ -9,7 +9,7 @@ private:
     std::priority_queue<double, std::vector<double>, std::greater<double>> higher_numbers;
 
 public:
-    MedianStructure();
+    MedianStructure() = default;
     MedianStructure(std::priority_queue<double> lower,
             std::priority_queue<double, std::vector<double>, std::greater<double>> higher);
 

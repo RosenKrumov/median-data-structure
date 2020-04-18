@@ -1,7 +1,5 @@
 #include "median_structure.h"
 
-MedianStructure::MedianStructure() {}
-
 MedianStructure::MedianStructure(std::priority_queue<double> lower,
         std::priority_queue<double, std::vector<double>, std::greater<double>> higher) :
         lower_numbers(lower), higher_numbers(higher) {
