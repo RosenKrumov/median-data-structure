@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.16)
-project(median)
+project(median
+        DESCRIPTION "A median data structure")
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(median src/main.cpp
-                      src/median_structure.cpp)
+add_subdirectory(src)
+add_subdirectory(tests)

@@ -55,13 +55,13 @@ TEST(MedianTest, NumberEqualToMedianTest_ShouldAddToLowerContainer)
     MedianStructure m;
 
     for (int n : {5, 3, 10, 15})
-        m.addNumber(n)
+        m.addNumber(n);
 
-    m.addNumber(m.getMedian())
+    m.addNumber(m.getMedian());
 
     EXPECT_EQ(3, m.lowerContainerSize());
     EXPECT_EQ(2, m.higherContainerSize());
-    EXPECT_EQ(8.75, m.getMedian());
+    EXPECT_EQ(7.5, m.getMedian());
 }
 
 TEST(MedianTest, CheckMedianAndContainerSizes)
@@ -70,6 +70,11 @@ TEST(MedianTest, CheckMedianAndContainerSizes)
     for(auto n : {1, 3, 22, 4, 15, 10})
         m.addNumber(n);
 
-    EXPECT_EQ(6, m.getMedian());
+    EXPECT_EQ(7, m.getMedian());
     EXPECT_EQ(m.lowerContainerSize(), m.higherContainerSize());
+}
+
+int main(int argc, char **argv) {
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
