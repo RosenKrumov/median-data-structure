@@ -4,11 +4,12 @@
 
 int main () {
     MedianStructure m;
-//    m.addNumber(5);
-//    m.addNumber(1);
-//    m.addNumber(10);
-//    m.addNumber(4);
-//    m.addNumber(3);
+    for (int n : {10, 4, 2, 4}) {
+        m.addNumber(n);
+        std::cout << "lower - " << m.lowerContainerSize() << std::endl;
+        std::cout << "higher - " << m.higherContainerSize() << std::endl;
+    }
+
 
     std::cout << m.getMedian() << std::endl;
 }

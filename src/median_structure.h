@@ -10,14 +10,11 @@ private:
 
 public:
     MedianStructure() = default;
-    MedianStructure(std::priority_queue<double> lower,
-            std::priority_queue<double, std::vector<double>, std::greater<double>> higher);
 
     void addNumber(double num);
+    auto lowerContainerSize() -> int;
+    auto higherContainerSize() -> int;
     auto getMedian() -> double;
-
-private:
-    void synchronizeQueues();
 };
 
 #endif //MEDIAN_MEDIAN_H
